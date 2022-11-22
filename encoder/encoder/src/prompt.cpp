@@ -10,12 +10,30 @@
 
 using namespace std;
 
+vector<int> custom() {
+    vector<int> bin_data;
+    int inputLength = 0;
+    cout << "Enter length of bit stream: ";
+    cin >> inputLength;
+    for (unsigned int i = 0; i < inputLength; i++) {
+        int bit = 0;
+        cin >> bit;
+        if (bit != 0 && bit != 1) {
+            cout << "Wrong bit stream!" << endl;
+            exit(1);
+        }
+        bin_data.push_back(bit);
+    }
+    return bin_data;
+}
+
 int main() {
     vector<int> bin_data;
     int generator_choice;
     cout << "Enter the index of the data generator of your chioce: " << endl;
     cout << "1. Random" << endl;
     cout << "2. Fixed Random" << endl;
+    cout << "3. Custom Input" << endl;
     cin >> generator_choice;
 
     switch (generator_choice)
@@ -26,7 +44,12 @@ int main() {
     case 2:
         bin_data = fixed_random();
         break;
+    case 3: 
+        bin_data = custom();
+        break;
     default:
+        cout << "Wrong Selection!" << endl;
+        exit(1);
         break;
     }
 
@@ -77,6 +100,8 @@ int main() {
         }
         break;
     default:
+        cout << "Wrong Selection!" << endl;
+        exit(1);
         break;
     }
 
