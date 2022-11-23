@@ -43,7 +43,7 @@ void nrzi_decode(vector<int>& encoded_data, vector<int>& decoded_data) {
 
 void manchester_decode(vector<int>& encoded_data, vector<int>& decoded_data) {
     unsigned int sz = encoded_data.size();
-    if ((sz & 2) != 0) {
+    if ((sz & 1) != 0) {
         cout << "Invalid data" << endl;
         exit(1);
     }
@@ -63,7 +63,7 @@ void manchester_decode(vector<int>& encoded_data, vector<int>& decoded_data) {
 
 void differential_manchester_decode(vector<int>& encoded_data, vector<int>& decoded_data) {
     unsigned int sz = encoded_data.size();
-    if ((sz & 2) != 0) {
+    if ((sz & 1) != 0) {
         cout << "Invalid data" << endl;
         exit(1);
     }

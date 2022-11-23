@@ -77,19 +77,15 @@ vector<int> fixed_random() {
     for (int i = 1; i <= l; i++) {
         sub_seq[i] = b;
     }
-
-    int r;
-    r = rand() & (n - l - 3);
-    if (l == n - 2) {
-        r = 0;
-    }
+    int r; 
+    r = rand() % (n - l - 2); 
     for (int i = 0; i < n; i++) {
         if (i >= r && i < r + l + 2) {
-            bin_data.push_back(sub_seq[i - r]);
+            bin_data[i] = sub_seq[i - r];
         }
         else {
             int x = rand() & 1;
-            bin_data.push_back(x);
+            bin_data[i] = x;
         }
     }
     return bin_data;
